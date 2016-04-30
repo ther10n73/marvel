@@ -21,4 +21,12 @@ public class Image {
     public String getExtension() {
         return extension;
     }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "path='" + path + '\'' +
+                ", extension='" + extension + '\'' +
+                '}';
+    }
 }

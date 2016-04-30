@@ -10,4 +10,9 @@ public class ComicSummary extends Summary {
         this.resourceURI = resourceURI;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Comics Summary{" + super.toString();
+    }
 }

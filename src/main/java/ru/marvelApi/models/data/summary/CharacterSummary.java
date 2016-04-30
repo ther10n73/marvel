@@ -17,4 +17,13 @@ public class CharacterSummary extends Summary {
     public String getRole() {
         return role;
     }
+
+    @Override
+    public String toString() {
+        return "CharacterSummary{" +
+                "resourceURI='" + resourceURI + '\'' +
+                "name" + name + '\'' +
+                "role='" + role + '\'' +
+                '}';
+    }
 }

@@ -10,17 +10,29 @@ import ru.marvelApi.models.events.EventDataWrapper;
 import ru.marvelApi.models.series.SeriesDataWrapper;
 import ru.marvelApi.models.stoies.StoriesDataWrapper;
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by Khartonov Oleg on 23.04.2016.
  */
-public class MarvelFactory {
+public class MarvelFactory implements Serializable {
     private final ReflectionApp reflection = new ReflectionApp();
     private final HttpConnection conn = new HttpConnection();
 
     public DataWrapper createDataWrapper(String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         JsonElement jsonResponse = conn.createParamRequests(HttpConnection.GET_INFO + type);
+        return createObjectOfType(jsonResponse, type);
+    }
+
+    public DataWrapper createDataWrapperForOneId(String type, int id, String typeSummary) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        StringBuilder str = new StringBuilder();
+        str.append(HttpConnection.GET_INFO).append(type).append("/").append(id).append("/").append(typeSummary);
+        JsonElement jsonResponse = conn.createParamRequests(str.toString());
+        return createObjectOfType(jsonResponse, typeSummary);
+    }
+
+    private DataWrapper createObjectOfType(JsonElement jsonResponse, String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         if (type.equals("events")){
             return reflection.createObject(jsonResponse, EventDataWrapper.class);
         } else if (type.equals("comics")) {

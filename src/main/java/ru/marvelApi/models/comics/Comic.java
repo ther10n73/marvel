@@ -322,4 +322,38 @@ public class Comic extends Data {
                     }
                 });
     }
+
+    @Override
+    public String toString() {
+        return "<br>Comics: </br>" +
+                "<br>ID: " + id + "</br>" +
+                "<br>DigitalID: " + digitalId + "</br>" +
+                "<br>Title: " + title + "</br>" +
+                "<br>Issue Number: " + issueNumber + "</br>" +
+                "<br>Variant Description: " + variantDescription + "</br>" +
+                "<br>Description: " + description + "</br>" +
+                "<br>Modified: " +modified + "</br>" +
+                "<br>Isbn: " + isbn + "</br>" +
+                "<br>UPC: " + upc + "</br>" +
+                "<br>Diamond Code: " + diamondCode + "</br>" +
+                "<br>EAN: " + ean + "</br>" +
+                "<br>ISSN: " + issn + "</br>" +
+                "<br>Format: " + format + "</br>" +
+                "<br>Page Count: " + pageCount + "</br>" +
+                "<br>Text Object: " + textObjects + "</br>" +
+                "<br>ResourceUri: " + resourceURI + "</br>" +
+                "<br>Urls: " + urls + "</br>" +
+                "<br>Series: " + series + "</br>" +
+                "<br>Variants: " + variants + "</br>" +
+                "<br>Collections: " + collections + "</br>" +
+                "<br>Collected Issues: " +collectedIssues + "</br>" +
+                "<br>Dates: " + dates + "</br>" +
+                "<br>Prices: " + prices + "</br>" +
+                "<br>Thumbnail: " + thumbnail + "</br>" +
+                "<br>Images: " + images + "</br>" +
+                "<br>Creators: " + creators + "</br>" +
+                "<br>Characters: " + characters + "</br>" +
+                "<br>Stories: " + stories + "</br>" +
+                "<br>Events: " + events + "</br>";
+    }
 }

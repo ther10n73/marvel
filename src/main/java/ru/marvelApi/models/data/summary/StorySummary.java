@@ -17,4 +17,9 @@ public class StorySummary extends Summary{
     public String getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Story Summary{" + super.toString() + "type='" + type + '\'';
+    }
 }

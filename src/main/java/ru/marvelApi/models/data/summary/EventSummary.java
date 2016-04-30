@@ -10,4 +10,9 @@ public class EventSummary extends Summary {
         this.resourceURI = resourceURI;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Event Summary{" + super.toString();
+    }
 }

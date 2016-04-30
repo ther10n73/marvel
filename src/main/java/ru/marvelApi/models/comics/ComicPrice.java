@@ -13,4 +13,10 @@ public class ComicPrice {
         this.type = type;
         this.price = Float.parseFloat(price);
     }
+
+    @Override
+    public String toString(){
+        return "<br>Type: " + type + "</br>" +
+                "<br>Price: " + price + "</br>";
+    }
 }

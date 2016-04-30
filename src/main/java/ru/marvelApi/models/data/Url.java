@@ -21,4 +21,12 @@ public class Url {
     public String getUrl() {
         return url;
     }
+
+    @Override
+    public String toString() {
+        return "Url{" +
+                "type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

@@ -10,4 +10,9 @@ public class SeriesSummary extends Summary {
         this.resourceURI = resourceURI;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Series Summary{" + super.toString();
+    }
 }

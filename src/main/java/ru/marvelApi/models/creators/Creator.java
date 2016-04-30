@@ -31,4 +31,9 @@ public class Creator extends Data {
         this.suffix = suffix;
         this.fullName = fullName;
     }
+
+    @Override
+    public String toString() {
+        return null;
+    }
 }

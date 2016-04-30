@@ -6,6 +6,7 @@ import com.google.gson.JsonPrimitive;
 import org.apache.commons.lang3.text.WordUtils;
 import ru.marvelApi.annotation.JsonField;
 
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -19,7 +20,7 @@ import java.util.stream.Stream;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public class ReflectionApp {
+public class ReflectionApp implements Serializable {
     public final static ReflectionApp getInstance() {
         return new ReflectionApp();
     }

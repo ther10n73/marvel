@@ -16,6 +16,7 @@ public class ComicList extends AbstractList{
         this.setItems(items);
     }
 
+    @Override
     public void setItems(JsonElement items){
         items.getAsJsonArray()
                 .forEach(je ->{

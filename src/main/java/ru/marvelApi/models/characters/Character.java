@@ -10,7 +10,17 @@ import ru.marvelApi.models.data.Data;
 public class Character extends Data {
     private String name;
 
-    public Character(@JsonField(name = "id")String id, @JsonField(name = "name")String name, @JsonField(name = "description")String description, @JsonField(name = "modified")String modified, @JsonField(name = "resourceURI")String resourceURI, @JsonField(name = "urls")JsonElement urls, @JsonField(name = "thumbnail")JsonElement thumbnail, @JsonField(name = "comics")JsonElement comics, @JsonField(name = "stories")JsonElement stories, @JsonField(name = "events")JsonElement events, @JsonField(name = "series")JsonElement series) {
+    public Character(@JsonField(name = "id")String id,
+                     @JsonField(name = "name")String name,
+                     @JsonField(name = "description")String description,
+                     @JsonField(name = "modified")String modified,
+                     @JsonField(name = "resourceURI")String resourceURI,
+                     @JsonField(name = "urls")JsonElement urls,
+                     @JsonField(name = "thumbnail")JsonElement thumbnail,
+                     @JsonField(name = "comics")JsonElement comics,
+                     @JsonField(name = "stories")JsonElement stories,
+                     @JsonField(name = "events")JsonElement events,
+                     @JsonField(name = "series")JsonElement series) {
         this.id = Integer.parseInt(id);
         this.name = name;
         this.description = description;
@@ -32,18 +42,20 @@ public class Character extends Data {
         this.name = name;
     }
 
+    @Override
     public String toString() {
-        return "<br>Character: " + "\n</br>" +
-                    "<br>id: " + id + "\n</br>" +
-                    "<br>name: " + name + "\n</br>" +
-                    "<br>description: " + description + "\n</br>" +
-                    "<br>modified: " + modified + "\n</br>" +
-                    "<br>resourceURl: " + resourceURI + "\n</br>" +
-                    "<br>" + getUrls().toString() + "\n</br>" +
-                    "<br>" + getThumbnail().toString() + "\n</br>" +
-                    "<br>" + getComics().toString() + "\n</br>" +
-                    "<br>" +  getStories().toString() + "\n</br>" +
-                    "<br>" + getEvents().toString() + "\n</br>" +
-                    "<br>" + getSeries().toString();
+        return "Character{" +
+                "id='" + id + '\'' +
+                "name='" + name + '\'' +
+                "description='" + description + '\'' +
+                "modified='" + modified + '\''  +
+                "resourseURI='" + resourceURI + '\'' +
+                "urls='" + urls + '\'' +
+                "thumbnail='" + thumbnail + '\'' +
+                "comics='" + comics + '\'' +
+                "stories='" + stories + '\'' +
+                "events='" + events + '\'' +
+                "series='" + series + '\'' +
+                '}';
     }
 }

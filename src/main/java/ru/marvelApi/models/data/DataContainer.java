@@ -10,12 +10,12 @@ import java.util.List;
 /**
  * Created by Khartonov Oleg on 13.04.2016.
  */
-public abstract class DataContainer<T> {
+public abstract class DataContainer {
     private int offset;
     private int limit;
     private int total;
     private int count;
-    protected List<T> results = new ArrayList<>();
+    protected List<Data> results = new ArrayList<>();
     public ReflectionApp reflection = new ReflectionApp();
 
     public DataContainer(@JsonField(name = "offset") String offset, @JsonField(name = "limit") String limit, @JsonField(name = "total") String total, @JsonField(name = "count") String count, @JsonField(name = "results") JsonElement results) {
@@ -42,7 +42,7 @@ public abstract class DataContainer<T> {
         return count;
     }
 
-    public List<T> getResults() {
+    public List<Data> getResults() {
         return results;
     }
 
@@ -64,12 +64,15 @@ public abstract class DataContainer<T> {
 
     public abstract void setResults(JsonElement results);
 
+    @Override
     public String toString() {
-        return "<br>Container: </br>" +
-                    "<br>offset: " + offset + "</br>" +
-                    "<br>limit: " + limit + "</br>" +
-                    "<br>total: " + total + "</br>" +
-                    "<br>count: " + count + "</br>" +
-                    "<br>" + getResults().toString() + "</br>";
+        return "DataContainer{" +
+                "offset=" + offset +
+                ", limit=" + limit +
+                ", total=" + total +
+                ", count=" + count +
+                ", results=" + results +
+                ", reflection=" + reflection +
+                '}';
     }
 }

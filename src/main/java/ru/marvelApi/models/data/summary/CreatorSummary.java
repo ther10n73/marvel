@@ -17,4 +17,9 @@ public class CreatorSummary extends Summary {
     public String getRole() {
         return role;
     }
+
+    @Override
+    public String toString() {
+        return "Creator Summary{" + super.toString() + "role='" + role + '\'';
+    }
 }

@@ -15,4 +15,11 @@ public class TextObject {
         this.language = language;
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "<br>Type: " + type + "</br>" +
+                "<br>Language: " + language + "</br>" +
+                "<br>Text: " + text + "</br>";
+    }
 }

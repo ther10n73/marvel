@@ -13,4 +13,10 @@ public class ComicDate {
         this.type = type;
         this.date = date;
     }
+
+    @Override
+    public String toString(){
+        return "<br>Type: " + type + "</br>" +
+                "<br>Date: " + date + "</br>";
+    }
 }

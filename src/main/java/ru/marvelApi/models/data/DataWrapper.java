@@ -80,13 +80,17 @@ public abstract class DataWrapper {
 
     public abstract void setData(JsonElement data) throws NoSuchMethodException;
 
+    @Override
     public String toString() {
-        return "<br>Data Wrapper: </br>" +
-                   "<br>code: " + code + "</br>" +
-                   "<br>status: " + status + "</br>" +
-                   "<br>copyright: " + copyright + "</br>" +
-                   "<br>attributionText: " + attributionText + "</br>" +
-                   "<br>attributionHTML: " + attributionHTML + "</br>" +
-                   "<br>" + data.toString() + "</br>";
+        return "DataWrapper{" +
+                "code='" + code + '\'' +
+                ", status='" + status + '\'' +
+                ", copyright='" + copyright + '\'' +
+                ", attributionText='" + attributionText + '\'' +
+                ", attributionHTML='" + attributionHTML + '\'' +
+                ", data=" + data +
+                ", etag='" + etag + '\'' +
+                ", reflectionApp=" + reflectionApp +
+                '}';
     }
 }

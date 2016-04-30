@@ -102,4 +102,9 @@ public class Event extends Data {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public String toString() {
+        return null;
+    }
 }

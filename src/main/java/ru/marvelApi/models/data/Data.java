@@ -1,6 +1,8 @@
 package ru.marvelApi.models.data;
 
 import com.google.gson.JsonElement;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import ru.marvelApi.ReflectionApp;
 import ru.marvelApi.models.data.list.*;
 
@@ -155,5 +157,20 @@ public abstract class Data {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public abstract String toString();
+
+    @Override
+    public boolean equals(Object data) {
+        return new EqualsBuilder()
+                .reflectionEquals(this, data);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(this)
+                .toHashCode();
     }
 }

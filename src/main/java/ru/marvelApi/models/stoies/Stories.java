@@ -11,7 +11,7 @@ import ru.marvelApi.models.data.summary.ComicSummary;
 public class Stories extends Data {
     private String title;
     private String type;
-    private String modified; //TO DO: перевести в дату
+    private String modified; //TO DO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
     private ComicSummary originalIssue;
 
     public Stories(@JsonField(name = "id") String id,
@@ -67,6 +67,11 @@ public class Stories extends Data {
     @Override
     public void setModified(String modified) {
         this.modified = modified;
+    }
+
+    @Override
+    public String toString() {
+        return null;
     }
 
     public ComicSummary getOriginalIssue() {

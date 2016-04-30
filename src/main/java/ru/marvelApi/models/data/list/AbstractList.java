@@ -1,5 +1,6 @@
 package ru.marvelApi.models.data.list;
 
+import com.google.gson.JsonElement;
 import ru.marvelApi.ReflectionApp;
 import ru.marvelApi.models.data.summary.Summary;
 
@@ -44,7 +45,16 @@ public abstract class AbstractList {
         this.collectionURI = collectionURI;
     }
 
-    public void setItems(List<Summary> items) {
-        this.items = items;
+    public abstract void setItems(JsonElement items);
+
+    @Override
+    public String toString() {
+        return "AbstractList{" +
+                "available=" + available +
+                ", returned=" + returned +
+                ", collectionURI='" + collectionURI + '\'' +
+                ", items=" + items +
+                ", reflectionApp=" + reflectionApp +
+                '}';
     }
 }
