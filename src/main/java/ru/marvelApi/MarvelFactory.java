@@ -22,17 +22,17 @@ public class MarvelFactory implements Serializable {
 
     public DataWrapper createDataWrapper(String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         JsonElement jsonResponse = conn.createParamRequests(HttpConnection.GET_INFO + type);
-        return createObjectOfType(jsonResponse, type);
+        return getTypeForDataWrapper(jsonResponse, type);
     }
 
-    public DataWrapper createDataWrapperForOneId(String type, int id, String typeSummary) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public DataWrapper createDataWrapper(String type, int id, String typeSummary) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         StringBuilder str = new StringBuilder();
         str.append(HttpConnection.GET_INFO).append(type).append("/").append(id).append("/").append(typeSummary);
         JsonElement jsonResponse = conn.createParamRequests(str.toString());
-        return createObjectOfType(jsonResponse, typeSummary);
+        return getTypeForDataWrapper(jsonResponse, typeSummary);
     }
 
-    private DataWrapper createObjectOfType(JsonElement jsonResponse, String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    private DataWrapper getTypeForDataWrapper(JsonElement jsonResponse, String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         if (type.equals("events")){
             return reflection.createObject(jsonResponse, EventDataWrapper.class);
         } else if (type.equals("comics")) {

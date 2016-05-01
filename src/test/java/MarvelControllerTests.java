@@ -13,8 +13,10 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import ru.marvelApi.MainApplication;
+import ru.marvelApi.MarvelFactory;
+import ru.marvelApi.controller.ExceptionController;
+import ru.marvelApi.controller.MarvelController;
 import ru.marvelApi.models.data.Data;
-import ru.marvelApi.processor.MarvelProcessor;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -23,18 +25,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Created by Khartonov Oleg on 26.04.2016.
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(MarvelProcessor.class)
+@WebMvcTest(value = {MarvelController.class, ExceptionController.class})
 @WebAppConfiguration
 @SpringApplicationConfiguration(classes = MainApplication.class)
-public class MarvelProcessorTests {
+public class MarvelControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
     private WebApplicationContext wac;
-    @Autowired
-    public MarvelProcessor marvelProcessor;
+    public MarvelFactory marvelFactory = new MarvelFactory();
 
     @Before
     public void setup(){
@@ -50,8 +51,17 @@ public class MarvelProcessorTests {
 
     @Test
     public void returnCharacterDataTest() throws Exception {
-               Data ch = marvelProcessor.getInfoForId("characters", 1011175);
+        Data ch = marvelFactory.createDataWrapper("characters")
+                .getData().getResults()
+                .stream()
+                .filter(dw -> dw.getId() == 1011175)
+                .findFirst().get();
         Assert.assertEquals(1011175, ch.getId());
         Assert.assertEquals("http://gateway.marvel.com/v1/public/characters/1011175", ch.getResourceURI());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void ErrorControllerTest() throws Exception {
+        mockMvc.perform(get("/type/characters/1"));
     }
 }

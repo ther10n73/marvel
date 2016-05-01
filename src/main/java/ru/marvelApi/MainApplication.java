@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("/ru/marvelApi/processor/")
+@ComponentScan("/ru/marvelApi/controller/")
 public class MainApplication {
     public static void main (String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         SpringApplication.run(MainApplication.class, args);
