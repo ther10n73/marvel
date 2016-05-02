@@ -4,8 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -14,9 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import ru.marvelApi.MainApplication;
 import ru.marvelApi.MarvelFactory;
-import ru.marvelApi.controller.ExceptionController;
-import ru.marvelApi.controller.MarvelController;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -24,8 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by Khartonov Oleg on 26.04.2016.
  */
-@RunWith(SpringRunner.class)
-@WebMvcTest(value = {MarvelController.class, ExceptionController.class})
+@RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @SpringApplicationConfiguration(classes = MainApplication.class)
 public class MarvelControllerTests {
@@ -51,7 +47,7 @@ public class MarvelControllerTests {
 
     @Test
     public void returnCharacterDataTest() throws Exception {
-        Data ch = marvelFactory.createDataWrapper("characters")
+        DataImpl ch = marvelFactory.createDataWrapper("characters")
                 .getData().getResults()
                 .stream()
                 .filter(dw -> dw.getId() == 1011175)

@@ -2,12 +2,12 @@ package ru.marvelApi.models.creators;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 
 /**
  * Created by Khartonov Oleg on 17.04.2016.
  */
-public class Creator extends Data {
+public class Creator extends DataImpl {
     private String firstName;
     private String middleName;
     private String lastName;
@@ -34,6 +34,22 @@ public class Creator extends Data {
 
     @Override
     public String toString() {
-        return null;
+        return "Creator{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", modified='" + modified + '\'' +
+                ", resourceURI='" + resourceURI + '\'' +
+                ", urls=" + urls +
+                ", thumbnail=" + thumbnail +
+                ", comics=" + comics +
+                ", stories=" + stories +
+                ", events=" + events +
+                ", series=" + series +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", suffix='" + suffix + '\'' +
+                ", fullName='" + fullName + '\'' +
+                '}';
     }
 }

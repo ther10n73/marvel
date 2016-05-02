@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public abstract class AbstractList {
+public abstract class DataListImpl {
     protected int available;
     protected int returned;
     protected String collectionURI;
@@ -49,7 +49,7 @@ public abstract class AbstractList {
 
     @Override
     public String toString() {
-        return "AbstractList{" +
+        return "DataList{" +
                 "available=" + available +
                 ", returned=" + returned +
                 ", collectionURI='" + collectionURI + '\'' +

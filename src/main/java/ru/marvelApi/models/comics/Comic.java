@@ -2,7 +2,7 @@ package ru.marvelApi.models.comics;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 import ru.marvelApi.models.data.Image;
 import ru.marvelApi.models.data.summary.ComicSummary;
 import ru.marvelApi.models.data.summary.SeriesSummary;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Khartonov Oleg on 13.04.2016.
  */
-public class Comic extends Data {
+public class Comic extends DataImpl {
     private int digitalId;
     private String title;
     private double issueNumber;
@@ -325,35 +325,36 @@ public class Comic extends Data {
 
     @Override
     public String toString() {
-        return "<br>Comics: </br>" +
-                "<br>ID: " + id + "</br>" +
-                "<br>DigitalID: " + digitalId + "</br>" +
-                "<br>Title: " + title + "</br>" +
-                "<br>Issue Number: " + issueNumber + "</br>" +
-                "<br>Variant Description: " + variantDescription + "</br>" +
-                "<br>Description: " + description + "</br>" +
-                "<br>Modified: " +modified + "</br>" +
-                "<br>Isbn: " + isbn + "</br>" +
-                "<br>UPC: " + upc + "</br>" +
-                "<br>Diamond Code: " + diamondCode + "</br>" +
-                "<br>EAN: " + ean + "</br>" +
-                "<br>ISSN: " + issn + "</br>" +
-                "<br>Format: " + format + "</br>" +
-                "<br>Page Count: " + pageCount + "</br>" +
-                "<br>Text Object: " + textObjects + "</br>" +
-                "<br>ResourceUri: " + resourceURI + "</br>" +
-                "<br>Urls: " + urls + "</br>" +
-                "<br>Series: " + series + "</br>" +
-                "<br>Variants: " + variants + "</br>" +
-                "<br>Collections: " + collections + "</br>" +
-                "<br>Collected Issues: " +collectedIssues + "</br>" +
-                "<br>Dates: " + dates + "</br>" +
-                "<br>Prices: " + prices + "</br>" +
-                "<br>Thumbnail: " + thumbnail + "</br>" +
-                "<br>Images: " + images + "</br>" +
-                "<br>Creators: " + creators + "</br>" +
-                "<br>Characters: " + characters + "</br>" +
-                "<br>Stories: " + stories + "</br>" +
-                "<br>Events: " + events + "</br>";
+        return "Comic{" +
+                "id=" + id +
+                ", digitalId=" + digitalId +
+                ", title='" + title + '\'' +
+                ", issueNumber=" + issueNumber +
+                ", variantDescription='" + variantDescription + '\'' +
+                ", description='" + description + '\'' +
+                ", modified='" + modified + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", upc='" + upc + '\'' +
+                ", diamondCode='" + diamondCode + '\'' +
+                ", ean='" + ean + '\'' +
+                ", issn='" + issn + '\'' +
+                ", format='" + format + '\'' +
+                ", pageCount=" + pageCount +
+                ", textObjects=" + textObjects + '\'' +
+                ", resourceURI='" + resourceURI + '\'' +
+                ", utls=" + urls +
+                ", series=" + series +
+                ", variants=" + variants +
+                ", collections=" + collections +
+                ", collectedIssues=" + collectedIssues +
+                ", dates=" + dates +
+                ", prices=" + prices +
+                ", thumbnail=" + thumbnail +
+                ", images=" + images +
+                ", creators=" + creators +
+                ", characters=" + characters +
+                ", stories=" + stories +
+                ", events=" + events +
+                '}';
     }
 }

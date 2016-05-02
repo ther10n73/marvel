@@ -1,176 +1,59 @@
 package ru.marvelApi.models.data;
 
 import com.google.gson.JsonElement;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import ru.marvelApi.ReflectionApp;
 import ru.marvelApi.models.data.list.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Khartonov Oleg on 17.04.2016.
+ * Created by Khartonov Oleg on 02.05.2016.
  */
-public abstract class Data {
-    protected int id;
-    protected String description;
-    protected String modified;
-    protected String resourceURI;
-    protected List<Url> urls;
-    protected Image thumbnail;
-    protected ComicList comics;
-    protected StoryList stories;
-    protected EventList events;
-    protected SeriesList series;
-    protected CreatorList creators;
-    protected CharacterList characters;
-    protected ReflectionApp reflection = new ReflectionApp();
+public interface Data {
+    int getId();
 
-    public int getId() {
-        return id;
-    }
+    CreatorList getCreators();
 
-    public CreatorList getCreators() {
-        return creators;
-    }
+    void setCreators(JsonElement creators);
 
-    public void setCreators(JsonElement creators) {
-        try {
-            this.creators = reflection.createObject(creators.getAsJsonObject(), CreatorList.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    CharacterList getCharacters();
 
-    public CharacterList getCharacters() {
-        return characters;
-    }
+    void setCharacters(JsonElement characters);
 
-    public void setCharacters(JsonElement characters) {
-        try {
-            this.characters = reflection.createObject(characters.getAsJsonObject(), CharacterList.class);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    SeriesList getSeries();
 
-    public SeriesList getSeries() {
-        return series;
-    }
+    void setSeries(JsonElement series);
 
-    public void setSeries(JsonElement series) {
-        try {
-            this.series = reflection.createObject(series.getAsJsonObject(), SeriesList.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    String getDescription();
 
-    public String getDescription() {
-        return description;
-    }
+    void setDescription(String description);
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    String getModified();
 
-    public String getModified() {
-        return modified;
-    }
+    void setModified(String modified);
 
-    public void setModified(String modified) {
-        this.modified = modified;
-    }
+    String getResourceURI();
 
-    public String getResourceURI() {
-        return resourceURI;
-    }
+    void setResourceURI(String resourceURI);
 
-    public void setResourceURI(String resourceURI) {
-        this.resourceURI = resourceURI;
-    }
+    List<Url> getUrls();
 
-    public List<Url> getUrls() {
-        return urls;
-    }
+    void setUrls(JsonElement urls);
 
-    public void setUrls(JsonElement urls) {
-        this.urls = new ArrayList<>();
-        if (!urls.isJsonNull()) {
-            urls.getAsJsonArray()
-                    .forEach(je -> {
-                        try {
-                            this.urls.add(reflection.createObject(je.getAsJsonObject(), Url.class));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
-        }
-    }
+    Image getThumbnail();
 
-    public Image getThumbnail() {
-        return thumbnail;
-    }
+    void setThumbnail(JsonElement thumbnail);
 
-    public void setThumbnail(JsonElement thumbnail) {
-        try {
-            if(!thumbnail.isJsonNull()) {
-                this.thumbnail = reflection.createObject(thumbnail.getAsJsonObject(), Image.class);
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    ComicList getComics();
 
-    public ComicList getComics() {
-        return comics;
-    }
+    void setComics(JsonElement comics);
 
-    public void setComics(JsonElement comics) {
-        try {
-            this.comics = reflection.createObject(comics.getAsJsonObject(), ComicList.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    StoryList getStories();
 
-    public StoryList getStories() {
-        return stories;
-    }
+    void setStories(JsonElement stories);
 
-    public void setStories(JsonElement stories) {
-        try {
-            this.stories = reflection.createObject(stories.getAsJsonObject(), StoryList.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    EventList getEvents();
 
-    public EventList getEvents() {
-        return events;
-    }
+    void setEvents(JsonElement events);
 
-    public void setEvents(JsonElement events) {
-        try {
-            this.events = reflection.createObject(events.getAsJsonObject(), EventList.class);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    
-    public abstract String toString();
-
-    @Override
-    public boolean equals(Object data) {
-        return new EqualsBuilder()
-                .reflectionEquals(this, data);
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37)
-                .append(this)
-                .toHashCode();
-    }
+    String toString();
 }

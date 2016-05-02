@@ -2,13 +2,13 @@ package ru.marvelApi.models.series;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 import ru.marvelApi.models.data.summary.SeriesSummary;
 
 /**
  * Created by Khartonov Oleg on 20.04.2016.
  */
-public class Series extends Data {
+public class Series extends DataImpl {
     private String title;
     private int startYear;
     private int endYear;
@@ -114,6 +114,24 @@ public class Series extends Data {
 
     @Override
     public String toString() {
-        return null;
+        return "Series{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", modified=" + modified +
+                ", resourceURI='" + resourceURI + '\'' +
+                ", startYear=" + startYear +
+                ", endYear=" + endYear +
+                ", rating='" + rating + '\'' +
+                ", urls=" + urls +
+                ", thumbnail=" + thumbnail +
+                ", comics=" + comics +
+                ", stories=" + stories +
+                ", events=" + events +
+                ", characters=" + characters +
+                ", creators=" + creators +
+                ", next=" + next +
+                ", previous=" + previous +
+                '}';
     }
 }

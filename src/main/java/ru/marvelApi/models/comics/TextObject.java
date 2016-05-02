@@ -18,8 +18,10 @@ public class TextObject {
 
     @Override
     public String toString() {
-        return "<br>Type: " + type + "</br>" +
-                "<br>Language: " + language + "</br>" +
-                "<br>Text: " + text + "</br>";
+        return "TextObject{" +
+                "type='" + type + '\'' +
+                ", language='" + language + '\'' +
+                ", text='" + text + '\'' +
+                '}';
     }
 }

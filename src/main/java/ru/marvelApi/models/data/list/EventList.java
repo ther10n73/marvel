@@ -7,7 +7,7 @@ import ru.marvelApi.models.data.summary.EventSummary;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public class EventList extends AbstractList {
+public class EventList extends DataList {
     public EventList(@JsonField(name = "available")String available, @JsonField(name = "returned")String returned,@JsonField(name = "collectionURI") String collectionURI, @JsonField(name = "items")JsonElement items) {
         this.available = Integer.parseInt(available);
         this.returned = Integer.parseInt(returned);

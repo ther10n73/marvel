@@ -3,13 +3,13 @@ package ru.marvelApi.models.events;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 import ru.marvelApi.models.data.summary.EventSummary;
 
 /**
  * Created by Khartonov Oleg on 17.04.2016.
  */
-public class Event extends Data {
+public class Event extends DataImpl {
     private String title;
     private String start;
     private String end;
@@ -105,6 +105,23 @@ public class Event extends Data {
 
     @Override
     public String toString() {
-        return null;
+        return "Event{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", resourceURI='" + resourceURI + '\'' +
+                ", urls=" + urls +
+                ", modified=" + modified +
+                ", thumbnail=" + thumbnail +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                ", comics=" + comics +
+                ", stories=" + stories +
+                ", series=" + series +
+                ", characters=" + characters +
+                ", creators=" + creators +
+                ", next=" + next +
+                ", previous=" + previous +
+                '}';
     }
 }

@@ -15,8 +15,10 @@ public class ComicDate {
     }
 
     @Override
-    public String toString(){
-        return "<br>Type: " + type + "</br>" +
-                "<br>Date: " + date + "</br>";
+    public String toString() {
+        return "ComicDate{" +
+                "type='" + type + '\'' +
+                ", date='" + date + '\'' +
+                '}';
     }
 }

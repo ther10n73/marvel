@@ -15,8 +15,10 @@ public class ComicPrice {
     }
 
     @Override
-    public String toString(){
-        return "<br>Type: " + type + "</br>" +
-                "<br>Price: " + price + "</br>";
+    public String toString() {
+        return "ComicPrice{" +
+                "type='" + type + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

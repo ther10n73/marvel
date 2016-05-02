@@ -7,7 +7,7 @@ import ru.marvelApi.models.data.summary.SeriesSummary;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public class SeriesList extends AbstractList {
+public class SeriesList extends DataList {
     public SeriesList(@JsonField(name = "available")String available, @JsonField(name = "returned")String returned,@JsonField(name = "collectionURI") String collectionURI, @JsonField(name = "items")JsonElement items) {
         this.available = Integer.parseInt(available);
         this.returned = Integer.parseInt(returned);

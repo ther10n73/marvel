@@ -2,12 +2,12 @@ package ru.marvelApi.models.characters;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public class Character extends Data {
+public class Character extends DataImpl {
     private String name;
 
     public Character(@JsonField(name = "id")String id,

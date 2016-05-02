@@ -1,96 +1,34 @@
 package ru.marvelApi.models.data;
 
 import com.google.gson.JsonElement;
-import ru.marvelApi.ReflectionApp;
-import ru.marvelApi.annotation.JsonField;
-
-import java.lang.reflect.InvocationTargetException;
 
 /**
- * Created by Khartonov Oleg on 13.04.2016.
+ * Created by Khartonov Oleg on 02.05.2016.
  */
-public abstract class DataWrapper {
-    private String code;
-    private String status;
-    private String copyright;
-    private String attributionText;
-    private String attributionHTML;
-    protected DataContainer data;
-    private String etag;
+public interface DataWrapper {
+    String getCode();
 
-    protected ReflectionApp reflectionApp = new ReflectionApp();
+    String getStatus();
 
-    public DataWrapper(@JsonField(name = "code") String code, @JsonField(name = "status") String status, @JsonField(name = "copyright") String copyright, @JsonField(name = "attributionText") String attributionText, @JsonField(name = "attributionHTML") String attributionHTML, @JsonField(name = "data") JsonElement data, @JsonField(name = "etag") String etag) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        this.code = code;
-        this.status = status;
-        this.copyright = copyright;
-        this.attributionText = attributionText;
-        this.attributionHTML = attributionHTML;
-        this.setData(data);
-        this.etag = etag;
-    }
+    String getCopyright();
 
-    public String getCode() {
-        return code;
-    }
+    String getAttributionText();
 
-    public String getStatus() {
-        return status;
-    }
+    String getAttributionHTML();
 
-    public String getCopyright() {
-        return copyright;
-    }
+    DataContainerImpl getData();
 
-    public String getAttributionText() {
-        return attributionText;
-    }
+    String getEtag();
 
-    public String getAttributionHTML() {
-        return attributionHTML;
-    }
+    void setCode(String code);
 
-    public DataContainer getData() {
-        return data;
-    }
+    void setStatus(String status);
 
-    public String getEtag() {
-        return etag;
-    }
+    void setCopyright(String copyright);
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+    void setAttributionText(String attributionText);
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    void setAttributionHTML(String attributionHTML);
 
-    public void setCopyright(String copyright) {
-        this.copyright = copyright;
-    }
-
-    public void setAttributionText(String attributionText) {
-        this.attributionText = attributionText;
-    }
-
-    public void setAttributionHTML(String attributionHTML) {
-        this.attributionHTML = attributionHTML;
-    }
-
-    public abstract void setData(JsonElement data) throws NoSuchMethodException;
-
-    @Override
-    public String toString() {
-        return "DataWrapper{" +
-                "code='" + code + '\'' +
-                ", status='" + status + '\'' +
-                ", copyright='" + copyright + '\'' +
-                ", attributionText='" + attributionText + '\'' +
-                ", attributionHTML='" + attributionHTML + '\'' +
-                ", data=" + data +
-                ", etag='" + etag + '\'' +
-                ", reflectionApp=" + reflectionApp +
-                '}';
-    }
+    void setData(JsonElement data) throws NoSuchMethodException;
 }

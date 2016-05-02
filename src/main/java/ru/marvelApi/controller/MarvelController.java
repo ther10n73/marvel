@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.marvelApi.MarvelFactory;
+import ru.marvelApi.MarvelFactoryImpl;
 import ru.marvelApi.models.MarvelTypes;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,7 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 @JsonAutoDetect
 public class MarvelController {
     private StringBuilder str;
-    private MarvelFactory marvelFactory = new MarvelFactory();
+    private MarvelFactory marvelFactory = new MarvelFactoryImpl();
 
     @RequestMapping("/listType/")
     public String getTypeMarvel(){

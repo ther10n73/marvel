@@ -2,14 +2,14 @@ package ru.marvelApi.models.comics;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.DataContainer;
+import ru.marvelApi.models.data.DataContainerImpl;
 
 import java.util.ArrayList;
 
 /**
  * Created by Khartonov Oleg on 13.04.2016.
  */
-public class ComicsDataContainer extends DataContainer {
+public class ComicsDataContainer extends DataContainerImpl {
     public ComicsDataContainer(@JsonField(name = "offset") String offset, @JsonField(name = "limit") String limit, @JsonField(name = "total") String total, @JsonField(name = "count") String count, @JsonField(name = "results") JsonElement results) {
         super(offset, limit, total, count, results);
     }

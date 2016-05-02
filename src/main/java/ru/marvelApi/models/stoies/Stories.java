@@ -2,16 +2,15 @@ package ru.marvelApi.models.stoies;
 
 import com.google.gson.JsonElement;
 import ru.marvelApi.annotation.JsonField;
-import ru.marvelApi.models.data.Data;
+import ru.marvelApi.models.data.DataImpl;
 import ru.marvelApi.models.data.summary.ComicSummary;
 
 /**
  * Created by Khartonov Oleg on 21.04.2016.
  */
-public class Stories extends Data {
+public class Stories extends DataImpl {
     private String title;
     private String type;
-    private String modified; //TO DO: ��������� � ����
     private ComicSummary originalIssue;
 
     public Stories(@JsonField(name = "id") String id,
@@ -33,7 +32,6 @@ public class Stories extends Data {
         super.modified = modified;
         super.resourceURI = resourceURI;
         this.type = type;
-        this.modified = modified;
         super.setThumbnail(thumbnail);
         super.setComics(comics);
         super.setSeries(series);
@@ -59,21 +57,6 @@ public class Stories extends Data {
         this.type = type;
     }
 
-    @Override
-    public String getModified() {
-        return modified;
-    }
-
-    @Override
-    public void setModified(String modified) {
-        this.modified = modified;
-    }
-
-    @Override
-    public String toString() {
-        return null;
-    }
-
     public ComicSummary getOriginalIssue() {
         return originalIssue;
     }
@@ -86,5 +69,24 @@ public class Stories extends Data {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Stories{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", modified=" + modified +
+                ", resourceURI='" + resourceURI + '\'' +
+                ", type='" + type + '\'' +
+                ", thumbnail=" + thumbnail +
+                ", comics=" + comics +
+                ", series=" + series +
+                ", events=" + events +
+                ", characters=" + characters +
+                ", creators=" + creators +
+                ", originalIssue=" + originalIssue +
+                '}';
     }
 }
