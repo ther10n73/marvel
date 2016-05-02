@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import ru.marvelApi.MainApplication;
 import ru.marvelApi.MarvelFactory;
+import ru.marvelApi.MarvelFactoryImpl;
 import ru.marvelApi.models.data.DataImpl;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -31,7 +32,7 @@ public class MarvelControllerTests {
 
     @Autowired
     private WebApplicationContext wac;
-    public MarvelFactory marvelFactory = new MarvelFactory();
+    public MarvelFactory marvelFactory = new MarvelFactoryImpl();
 
     @Before
     public void setup(){

@@ -5,7 +5,7 @@ import ru.marvelApi.annotation.JsonField;
 /**
  * Created by Khartonov Oleg on 13.04.2016.
  */
-public class CharacterSummary extends Summary {
+public class CharacterSummary extends SummaryImpl {
     private String role;
 
     public CharacterSummary(@JsonField(name = "resourceURI") String resourceURI, @JsonField(name = "name") String name, @JsonField(name = "type") String role) {

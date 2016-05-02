@@ -7,7 +7,7 @@ import ru.marvelApi.models.data.summary.ComicSummary;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public class ComicList extends DataList {
+public class ComicList extends DataListImpl {
 
     public ComicList(@JsonField(name = "available")String available, @JsonField(name = "returned")String returned,@JsonField(name = "collectionURI") String collectionURI, @JsonField(name = "items")JsonElement items) {
         this.available = Integer.parseInt(available);

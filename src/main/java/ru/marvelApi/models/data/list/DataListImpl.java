@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-public abstract class DataListImpl {
+public abstract class DataListImpl implements DataList {
     protected int available;
     protected int returned;
     protected String collectionURI;

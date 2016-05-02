@@ -42,7 +42,7 @@ public class MarvelController {
     }
 
     @RequestMapping("/type/{type}/{id}")
-    public @ResponseBody String getInfoForId(@PathVariable String type, @PathVariable int id) throws Exception {
+    public String getInfoForId(@PathVariable String type, @PathVariable int id) throws Exception {
         return String.valueOf(marvelFactory.createDataWrapper(type).getData().getResults()
                 .stream()
                 .filter(res -> res.getId() == id)
