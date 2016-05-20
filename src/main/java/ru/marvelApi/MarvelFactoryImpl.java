@@ -24,11 +24,11 @@ public class MarvelFactoryImpl implements MarvelFactory {
         return getTypeForDataWrapper(jsonResponse, type);
     }
 
-    public DataWrapper createDataWrapper(String type, int id, String typeSummary) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public DataWrapper createDataWrapper(String type, int id, String expendedType) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         StringBuilder str = new StringBuilder();
-        str.append(HttpConnection.GET_INFO).append(type).append("/").append(id).append("/").append(typeSummary);
+        str.append(HttpConnection.GET_INFO).append(type).append("/").append(id).append("/").append(expendedType);
         JsonElement jsonResponse = conn.createParamRequests(str.toString());
-        return getTypeForDataWrapper(jsonResponse, typeSummary);
+        return getTypeForDataWrapper(jsonResponse, expendedType);
     }
 
     public DataWrapper getTypeForDataWrapper(JsonElement jsonResponse, String type) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {

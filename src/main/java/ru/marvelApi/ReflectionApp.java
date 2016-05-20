@@ -21,6 +21,7 @@ import java.util.stream.Stream;
  * Created by Khartonov Oleg on 09.04.2016.
  */
 public class ReflectionApp implements Serializable {
+
     public final static ReflectionApp getInstance() {
         return new ReflectionApp();
     }

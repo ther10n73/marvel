@@ -1,20 +1,27 @@
 package ru.marvelApi;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import ru.marvelApi.controller.MarvelController;
 
-import java.lang.reflect.InvocationTargetException;
+import javax.servlet.http.HttpServlet;
 
 /**
  * Created by Khartonov Oleg on 09.04.2016.
  */
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan("/ru/marvelApi/controller/")
-public class MainApplication {
-    public static void main (String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        SpringApplication.run(MainApplication.class, args);
+public class MainApplication extends HttpServlet {
+
+    public void run() throws Exception {
+        Server server = new Server(8081);
+        ServletContextHandler contextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        server.setHandler(contextHandler);
+        contextHandler.setContextPath("/marvel/");
+        contextHandler.addServlet(new ServletHolder(MarvelController.class), "/*");
+        server.start();
+    }
+
+    public static void main (String[] args) throws Exception {
+        new MainApplication().run();
     }
 }
